@@ -14,5 +14,10 @@ if (config.use_env_variable) {
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
+db.Shop = require('./shoppingmall')(sequelize, Sequelize);
+db.Product = require('./product')(sequelize, Sequelize);
+
+db.Shop.hasMany(db.Product, {foreignKey: 'mall_id'});
+db.Product.belongsTo(db.Shop, {foreignKey: 'mall_id'});
 
 module.exports = db;
