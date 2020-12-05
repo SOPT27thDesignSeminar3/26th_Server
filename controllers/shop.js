@@ -16,9 +16,9 @@ module.exports = {
 
             const data = await result.map(r => {
                 if (r.price && r.discount) {
-                    r.dataValues.sale_price = r.price * r.discount * 0.01;
+                    r.dataValues.sale_price = r.price - (r.price  * r.discount * 0.01);
+                    r.discount += '%';
                 }
-                r.discount += '%'
                 return r;
             })
 

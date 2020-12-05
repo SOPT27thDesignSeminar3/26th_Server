@@ -6,6 +6,6 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-router.use('/shop', require('./shop'));
+router.use('/product', require('./product'));
 
 module.exports = router;
