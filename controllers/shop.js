@@ -21,7 +21,6 @@ module.exports = {
                 }
                 return r;
             })
-
             return res.status(CODE.OK).send(util.success(CODE.OK, MESSAGE.SUCCESS_READ, data));
         } catch (error) {
             console.log('error : ', error);

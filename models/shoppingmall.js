@@ -2,6 +2,7 @@ module.exports = (sequelize, DataTypes) => {
     return sequelize.define('shoppingmall', {
         id: {
             primaryKey: true,
+            autoIncrement: true,
             type: DataTypes.INTEGER,
             allowNull: false,
         },

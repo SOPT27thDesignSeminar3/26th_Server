@@ -8,7 +8,9 @@ const moment = require('moment');
 const db = {};
 const date = moment().format('YYYY[_]MM[_]DD');
 const time = moment().format('H:mm:ss');
-config.logging = msg => log.write(`[${time}]\n${msg}\n\n`);
+const log = fs.createWriteStream(`./${date}_sequelize.log`, {'flags': 'a'});
+log.write(`\n\n[${time}]\n`);
+config.logging = msg => log.write(`${msg}`);
 
 let sequelize;
 if (config.use_env_variable) {
@@ -25,5 +27,5 @@ db.Product = require('./product')(sequelize, Sequelize);
 db.Shop.hasMany(db.Product, {foreignKey: 'mall_id'});
 db.Product.belongsTo(db.Shop, {foreignKey: 'mall_id'});
 
-const log = fs.createWriteStream(`./${date}_sequelize.log`, {'flags': 'a'});
+
 module.exports = db;

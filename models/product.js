@@ -2,6 +2,7 @@ module.exports = (sequelize, DataTypes) => {
     return sequelize.define('product', {
         id: {
             primaryKey: true,
+            autoIncrement: true,
             type: DataTypes.INTEGER,
             allowNull: false,
         },
@@ -39,6 +40,10 @@ module.exports = (sequelize, DataTypes) => {
         },
         likes: {
             type: DataTypes.INTEGER,
+            allowNull: true,
+        },
+        is_likes: {
+            type: DataTypes.BOOLEAN,
             allowNull: true,
         }
     }, {

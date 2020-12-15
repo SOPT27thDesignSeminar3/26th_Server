@@ -5,6 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const { swaggerUi, specs } = require('./modules/swagger');
 const { sequelize } = require('./models');
+
 sequelize.sync({alter: false})
 .catch((error) => {
   console.error(error)
