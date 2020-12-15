@@ -1,4 +1,4 @@
-const {Product} = require('../models');
+const {Product, Shop} = require('../models');
 
 module.exports = {
     getProdFilterCate: async (cate) => {
@@ -11,6 +11,7 @@ module.exports = {
             if (cate === 'bags')
                 option.attributes = ['id', 'title', 'main_image', 'is_likes'];
 
+            option.include = [{model: Shop, attributes: ['name']}]
             return await Product.findAll(option);
             
         } catch (err) {
