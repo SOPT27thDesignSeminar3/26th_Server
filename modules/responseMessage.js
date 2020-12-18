@@ -23,6 +23,15 @@ module.exports = {
 
     SUCCESS_READ_STONE: '질문 조회에 성공했습니다.',
 
-    SUCCESS_READ: '조회 성공'
+    SUCCESS_READ: '조회 성공',
+
+    /* Post */
+    READ_POST_FAIL: "게시글 조회 성공",
+    READ_POST_ALL_FAIL: "전체 게시글 조회 실패",
+    /* Hashtag */
+    READ_HASHTAG_FAIL: "해시태그 조회 성공",
+    READ_HASHTAG_ALL_FAIL: "전체 해시태그 조회 실패",
+    /* 서버에러 */
+    INTERNAL_SERVER_ERROR: "서버 내부 오류",
 
 }

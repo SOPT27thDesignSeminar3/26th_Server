@@ -17,7 +17,7 @@ var { getList } = require('../controllers/shop');
  *        description: 제품 조회 성공
  */
 
- /**
+/**
  * @swagger
  *  /product:
  *    get:

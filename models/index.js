@@ -1,3 +1,6 @@
+// 데이터베이스의 테이블을 정의하는곳
+// 실제 MySQL 테이블과 시퀄라이즈의 모델은 대응됨
+
 'use strict';
 
 const Sequelize = require('sequelize');
@@ -21,11 +24,20 @@ if (config.use_env_variable) {
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
+
 db.Shop = require('./shoppingmall')(sequelize, Sequelize);
 db.Product = require('./product')(sequelize, Sequelize);
 
 db.Shop.hasMany(db.Product, {foreignKey: 'mall_id'});
 db.Product.belongsTo(db.Shop, {foreignKey: 'mall_id'});
 
+db.Banner = require('./banner')(sequelize, Sequelize);
+db.Hashtag = require('./hashtag')(sequelize, Sequelize);
+db.Post = require('./post')(sequelize, Sequelize);
+
+db.Post.hasMany(db.Hashtag, {foreignKey: 'post_id'});
+db.Hashtag.belongsTo(db.Post, {foreignKey: 'post_id'});
 
 module.exports = db;
+
+
